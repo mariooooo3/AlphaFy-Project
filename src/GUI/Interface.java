@@ -39,6 +39,8 @@ public class Interface extends JFrame {
     private JTextField textField2;
     private JTextField nowPlaying;
     private JTextField welcome;
+    private JProgressBar progressBar;
+    private javax.swing.Timer progressTimer;
 
 
     public String userName;
@@ -86,6 +88,7 @@ public class Interface extends JFrame {
         }
 
         PlayMusic(url);
+        startProgressBar();
         nowPlaying.setText(songName1 + duration);
     }
 
@@ -99,6 +102,32 @@ public class Interface extends JFrame {
             }
         }
     }
+
+    private void startProgressBar() {
+        if (progressTimer != null) {
+            progressTimer.stop();
+        }
+
+        progressTimer = new javax.swing.Timer(200, e -> {
+            if (currentClip != null && currentClip.isOpen()) {
+                long current = currentClip.getMicrosecondPosition();
+                long total = currentClip.getMicrosecondLength();
+
+                if (total > 0) {
+                    int progress = (int) (100 * current / total);
+                    progressBar.setValue(progress);
+                    progressBar.setString(progress + "%");
+                }
+
+                if (!currentClip.isRunning()) {
+                    progressTimer.stop();
+                }
+            }
+        });
+
+        progressTimer.start();
+    }
+
 
     private void initUI() {
         setBackground(new Color(226, 226, 254));
@@ -226,6 +255,7 @@ public class Interface extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (currentClip != null && !currentClip.isRunning()) {
                     currentClip.start();
+                    startProgressBar();
                     if (nowPlaying.getText().startsWith("Paused:")) {
                         nowPlaying.setText(nowPlaying.getText().substring(7));
                     }
@@ -236,10 +266,11 @@ public class Interface extends JFrame {
         play.setBounds(402, 377, 140, 29);
         panel.add(play);
 
-        JProgressBar progressBar = new JProgressBar();
+        progressBar = new JProgressBar(0, 100);
         progressBar.setStringPainted(true);
         progressBar.setBounds(322, 361, 145, 18);
         panel.add(progressBar);
+
 
         textField2 = new JTextField();
         textField2.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -343,9 +374,7 @@ public class Interface extends JFrame {
         scrollPane.getViewport().setBorder(null);
 
         tree.setCellRenderer(new DefaultTreeCellRenderer() {
-            /**
-             *
-             */
+
             private static final long serialVersionUID = 1L;
 
             @Override
