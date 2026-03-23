@@ -38,7 +38,13 @@ AlphaFy is a Java desktop music player designed to showcase **OOP principles** a
 1. Clone the repository
 2. Install **Git LFS** for large audio files
 3. Open the project in **IntelliJ IDEA**
-4. Run [AlphaFy.java](./src/AlphaFy.java)
+4. Run [AlphaFy.java](./src/AlphaFy/AlphaFy.java)
+
+---
+
+## UML Diagram
+
+![UML Diagram](./AlphaFy-UML.png)
 
 ---
 
