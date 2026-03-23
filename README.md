@@ -1,30 +1,30 @@
-# 🎵 AlphaFy – Java Music Player Application
+# AlphaFy – Java Music Player Application
 
 AlphaFy is a Java desktop music player designed to showcase **OOP principles** and a clean, modular architecture. The application allows users to manage and play songs, albums, playlists, and folders with a flexible and intuitive playback system.
 
 ---
 
-## 🏗️ **Project Architecture**
+## Project Architecture
 
-| Module | Link                                                                                                                                                         | Functionality |
-| :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------| :--- |
-| **Main App** | [AlphaFy.java](./src/AlphaFy/AlphaFy.java)                                                                                                                   | Application entry point |
-| **GUI** | [Interface.java](./src/GUI/Interface.java), [Interface.form](./src/GUI/Interface.form)                                                                       | Graphical interface (Swing) |
+| Module | Link | Functionality |
+|:------|:------|:---------------|
+| **Main App** | [AlphaFy.java](./src/AlphaFy/AlphaFy.java) | Application entry point |
+| **GUI** | [Interface.java](./src/GUI/Interface.java), [Interface.form](./src/GUI/Interface.form) | Graphical interface (Swing) |
 | **Media** | [Album.java](./src/Media/Album.java), [Song.java](./src/Media/Song.java), [PlayList.java](./src/Media/PlayList.java), [Folder.java](./src/Media/Folder.java) | Handles songs, albums, playlists, and folder structures |
-| **Playback** | [Playable.java](./src/Playback/Playable.java), [CompositePlayable.java](./src/Playback/CompositePlayable.java)                                               | Defines playback behavior using Composite Pattern |
+| **Playback** | [Playable.java](./src/Playback/Playable.java), [CompositePlayable.java](./src/Playback/CompositePlayable.java) | Defines playback behavior using Composite Pattern |
 
 ---
 
-## 📝 **Key Features**
+## Key Features
 
-* 🎶 Music playback via `Playable` (songs, albums, playlists)
-* 🧩 Composite Pattern for grouped playback
-* 🖥️ Intuitive GUI using Swing
-* 📂 Media organization into folders and playlists
+* Music playback via `Playable` (songs, albums, playlists)
+* Composite Pattern for grouped playback
+* Intuitive GUI using Swing
+* Media organization into folders and playlists
 
 ---
 
-## 📚 **Technologies**
+## Technologies
 
 * Java OOP
 * Design Pattern: Composite
@@ -33,7 +33,7 @@ AlphaFy is a Java desktop music player designed to showcase **OOP principles** a
 
 ---
 
-## 🚀 **Getting Started**
+## Getting Started
 
 1. Clone the repository
 2. Install **Git LFS** for large audio files
@@ -42,6 +42,6 @@ AlphaFy is a Java desktop music player designed to showcase **OOP principles** a
 
 ---
 
-## 📦 **Resources**
+## Resources
 
 * Audio files (`.wav`) and background images are managed with **Git LFS** for efficient repository size.
